@@ -1,28 +1,23 @@
 terraform {
-       required_providers {
-         yandex = {
-           source  = "yandex-cloud/yandex"
-           version = "=0.84"
-         }
-       }
+  required_providers {
+    yandex = {
+      source  = "yandex-cloud/yandex"
+      version = "=0.84"
+    }
+  }
 }
 
-data "yandex_compute_image" "evgeny_image" {
+data "yandex_compute_image" "my_image" {
   family = var.instance_family_image
 }
 
-resource "yandex_compute_instance" "vm-test" {
+resource "yandex_compute_instance" "vm" {
   name = "terraform-${var.instance_family_image}"
-  allow_stopping_for_update = true
 
   resources {
     cores  = 2
     memory = 2
   }
-
-scheduling_policy {
-  preemptible = true
-}
 
   boot_disk {
     initialize_params {
@@ -36,6 +31,6 @@ scheduling_policy {
   }
 
   metadata = {
-    ssh-keys = "${file("../../meta.yml")}"
+    user-data = "${file("meta.yml")}"
   }
 }
