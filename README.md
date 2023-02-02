@@ -37,6 +37,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_yandex_cloud_id"></a> [yandex\_cloud\_id](#input\_yandex\_cloud\_id) | n/a | `string` | `"b1gm19nmjb0pa1kch69i"` | no |
 | <a name="input_yandex_folder_id"></a> [yandex\_folder\_id](#input\_yandex\_folder\_id) | n/a | `string` | `"b1gtv6t2104oglbvpco8"` | no |
 
 ## Outputs
